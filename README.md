@@ -13,6 +13,7 @@
 1. Clone the repository:
    
   git clone <repository_url>
+  
   cd <repository_directory>
 
 2. Initialize your Node.js project:
@@ -34,7 +35,7 @@ Create a `.env` file in your project directory and add the JWT secret:
    npm install
 
 8. Start the Server:
-  npm start
+   npm start
 
 ## Features
 
@@ -60,4 +61,60 @@ Create a `.env` file in your project directory and add the JWT secret:
     "password": "your_password"
   }
   ```
+
+  3. **Add New Product** (Admin Only):
+- Endpoint: `/product/add`
+- Method: POST
+- JSON Request Body:
+  ```json
+  {
+    "product_name": "product_name",
+    "unit_price": 12.34,
+    "description": "product_description"
+  }
+  ```
+- Admin Credentials: Username: admin, Password: admin
+
+4. **View Product**:
+- Endpoint: `/product/view/:product_id`
+- Method: GET
+- Replace `:product_id` with the actual product ID of the product you want to view.
+
+5. **Add Item to Cart**:
+- Endpoint: `/cart/add/:user_id`
+- Method: POST
+- JSON Request Body:
+  ```json
+  {
+    "product_id": 123,
+    "quantity": 2,
+    "unit_price": 10.99
+  }
+  ```
+- Replace `:user_id` with the user's ID.
+
+6. **View Cart**:
+- Endpoint: `/cart/view/:user_id`
+- Method: GET
+- Replace `:user_id` with the user's ID.
+
+7. **Make an Order**:
+- Endpoint: `/order/make/:user_id`
+- Method: GET
+- Replace `:user_id` with the user's ID.
+
+8. **View All Orders**:
+- Endpoint: `/order/view/:user_id/all`
+- Method: GET
+- Replace `:user_id` with the user's ID.
+
+9. **View Order Details**:
+- Endpoint: `/order/view/:user_id/:order_id`
+- Method: GET
+- Replace `:user_id` with the user's ID and `:order_id` with the order ID you want to view.
+
+Replace placeholders like `<repository_url>`, `<repository_directory>`, and other values with your actual project details.
+
+Ensure to implement security measures such as input validation and password hashing to secure your application properly.
+
 
